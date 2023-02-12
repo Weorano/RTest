@@ -1,7 +1,4 @@
 from django.contrib import admin
-from django.contrib.admin import SimpleListFilter
-from django.template.loader import render_to_string
-from django.utils.html import format_html
 
 from quarry.models import DumpTruckModels, DumpTrucks
 
