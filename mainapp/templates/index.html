@@ -1,0 +1,76 @@
+{% extends "includes/base.html" %}
+
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base/reset.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/base/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/base/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block scripts %}
+<script src="https://kit.fontawesome.com/6c1cf59610.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static '/js/index.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="main-text">Параметры самосвалов <small>Выберите модель</small></h2>
+
+    <div class="filter-block">
+
+        <div class="col col-1">
+            <label for="filter1">Модель:</label>
+        </div>
+        <div class="col col-4">
+            <select name="model" id="filter1">
+                <option value="" selected>Все</option>
+            </select>
+        </div>
+        <div class="col col-4">
+            <button>Применить</button>
+        </div>
+
+    </div>
+
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-2">Бортовой номер</div>
+            <div class="col col-2">Модель</div>
+            <div class="col col-3">Макс. грузо-подъёмность</div>
+            <div class="col col-2">Текущий вес</div>
+            <div class="col col-2">Перегруз, %</div>
+        </li>
+        <li class="table-row">
+            <div class="col col-2" data-label="Job Id">42235</div>
+            <div class="col col-2" data-label="Customer Name">John Doe</div>
+            <div class="col col-3" data-label="Amount">$350</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+        </li>
+        <li class="table-row">
+            <div class="col col-2" data-label="Job Id">42442</div>
+            <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
+            <div class="col col-3" data-label="Amount">$220</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+        </li>
+        <li class="table-row">
+            <div class="col col-2" data-label="Job Id">42257</div>
+            <div class="col col-2" data-label="Customer Name">John Smith</div>
+            <div class="col col-3" data-label="Amount">$341</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+        </li>
+        <li class="table-row">
+            <div class="col col-2" data-label="Job Id">42311</div>
+            <div class="col col-2" data-label="Customer Name">John Carpenter</div>
+            <div class="col col-3" data-label="Amount">$115</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+            <div class="col col-2" data-label="Payment Status">Pending</div>
+        </li>
+    </ul>
+</div>
+{% endblock %}
