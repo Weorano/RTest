@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class MainappConfig(AppConfig):
+class QuarryConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mainapp'
+    name = 'quarry'
+    verbose_name = 'Карьер'
