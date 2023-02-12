@@ -1,0 +1,69 @@
+{% extends "includes/base.html" %}
+
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base/reset.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/base/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'css/base/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block scripts %}
+<script src="https://kit.fontawesome.com/6c1cf59610.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static '/js/index.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="main-text">Параметры самосвалов <small>Выберите модель</small></h2>
+
+    <form class="filter-block" method="get" action="{% url 'Главная' %}">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="col col-1">
+            {{ field.label_tag }}
+        </div>
+
+        <div class="col col-4">
+            {{ field }}
+        </div>
+        {% endfor %}
+
+        <div class="col col-4">
+            <button type="submit" class="btn btn-primary">Применить</button>
+        </div>
+    </form>
+
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-2">Бортовой номер</div>
+            <div class="col col-2">Модель</div>
+            <div class="col col-3">Макс. грузо-подъёмность</div>
+            <div class="col col-2">Текущий вес</div>
+            <div class="col col-2">Перегруз, %</div>
+        </li>
+        {% for parameter in parameters %}
+        <li class="table-row">
+            <div class="col col-2" data-label="Бортовой номер">
+                {{parameter.tactical_number}}
+            </div>
+            <div class="col col-2" data-label="Модель">
+                {{parameter.model.name}}
+            </div>
+            <div class="col col-3" data-label="Макс. грузо-подъёмность">
+                {{parameter.model.load_capacity_max|floatformat:0}}
+            </div>
+            <div class="col col-2" data-label="Текущий вес">
+                {{parameter.current_weight|floatformat:0}}
+            </div>
+            <div class="col col-2" data-label="Перегруз, %">
+                {{parameter.overload}}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

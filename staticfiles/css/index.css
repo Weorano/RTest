@@ -33,11 +33,11 @@ label {
     justify-content: flex-start;
 }
 
-.filter-block .col:nth-child(2) {
+.filter-block .col:nth-child(3) {
     padding-left: 30px;
 }
 
-.filter-block .col:nth-child(3) {
+.filter-block .col:nth-child(4) {
     padding-left: 30px;
 }
 
@@ -137,20 +137,18 @@ label {
     .filter-block {
         flex-wrap: wrap;
     }
-
-    .filter-block .col:nth-child(3) {
+    .filter-block .col:nth-child(5) {
+        flex-basis: 65%;
+    }
+    .filter-block .col:nth-child(4) {
         flex-basis: 100%;
         padding-top: 10px;
         padding-left: 0;
     }
-
-    .filter-block .col:nth-child(2) {
-        flex-basis: 65%;
-    }
 }
 
 @media (max-width: 321px) {
-    .filter-block .col:nth-child(2) {
+    .filter-block .col:nth-child(3) {
         flex-basis: 58%;
     }
 }

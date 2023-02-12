@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from mainapp.views import index_view
+from quarry.views import index_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
