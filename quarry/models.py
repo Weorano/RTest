@@ -21,6 +21,14 @@ class DumpTruckModels(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        for truck in self.dumptrucks_set.all():
+            if truck.current_weight:
+                truck.overload = overload_detection(self.load_capacity_max, truck.current_weight)
+                truck.save()
+
 
 class DumpTrucks(models.Model):
     class Meta:
@@ -56,7 +64,6 @@ class DumpTrucks(models.Model):
         return self.tactical_number
 
     def save(self, *args, **kwargs):
-        print(self.overload)
         if self.current_weight:
             self.overload = overload_detection(
                 self.model.load_capacity_max,
