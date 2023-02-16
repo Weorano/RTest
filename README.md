@@ -1,2 +1,1 @@
-# ReksoftTest
 Test task
