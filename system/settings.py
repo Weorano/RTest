@@ -29,7 +29,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'reksoft.urls'
+ROOT_URLCONF = 'system.urls'
 
 TEMPLATES = [
     {
@@ -47,7 +47,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'reksoft.wsgi.application'
+WSGI_APPLICATION = 'system.wsgi.application'
 
 DATABASES = {
     'default': {
