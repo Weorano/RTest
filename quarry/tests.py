@@ -18,9 +18,9 @@ class DumpTrucksTest(TestCase):
         self.assertEqual(self.dump_truck.overload, 0)
 
     def test_current_weight_greater_than_load_capacity_max(self):
-        self.dump_truck.current_weight = 150
+        self.dump_truck.current_weight = 121
         self.dump_truck.save()
-        self.assertEqual(self.dump_truck.overload, 25)
+        self.assertEqual(self.dump_truck.overload, 0.8)
 
     def test_load_capacity_max_changed(self):
         self.dump_truck.current_weight = 120
